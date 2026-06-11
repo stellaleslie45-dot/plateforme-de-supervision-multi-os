@@ -28,6 +28,7 @@ Pour remonter les indicateurs de performance (CPU, RAM, charge système, espace 
 # Mise à jour des dépôts et installation de l'agent
 sudo apt update
 sudo apt install zabbix-agent -y
+```
 
 Modification du fichier de configuration :
 
@@ -39,12 +40,14 @@ ServerActive=192.168.0.100
 Hostname=Client-Ubuntu
 
 Démarrage et persistance du démon Linux :
-Bash
+
+```Bash
 
 # Rechargement, activation au démarrage et lancement de l'agent
 sudo systemctl daemon-reload
 sudo systemctl enable zabbix-agent
 sudo systemctl restart zabbix-agent
+```
 
 2. Provisionnement de l'Hôte sur la Console Zabbix
 
@@ -82,9 +85,9 @@ Configuration du flux réseau :
 Scénario de Test et Diagnostic :
 
 Pour valider la chaîne d'alerte, un arrêt brutal du service a été provoqué directement sur le client Ubuntu :
-Bash
-
+```Bash
 sudo systemctl stop zabbix-agent
+```
 
     Constat dans l'Action Log : L'alerte "Zabbix agent is unavailable" s'est déclenchée instantanément dans l'interface.
 
